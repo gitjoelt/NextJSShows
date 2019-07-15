@@ -16,6 +16,16 @@ class Index extends React.Component {
         });
     }
 
+    deleteHandler = index => {
+        const shows = [...this.state.shows];
+        const filtered = shows.filter((show,findex) => {
+            return findex !== index
+        });
+        this.setState({
+            shows: filtered
+        });
+    }
+
     getShows = async () => {
         const res = await fetch(`http://api.tvmaze.com/search/shows?q=${this.state.text}`)
         const data = await res.json();
@@ -32,9 +42,9 @@ class Index extends React.Component {
                     <button onClick={this.getShows}>Search</button>
                 </section>
                 <section className='show-grid'>
-                    {this.state.shows.map(show => {
+                    {this.state.shows.map((show,index) => {
                         return (
-                            <Show data={show} />
+                            <Show key={index} index={index} data={show} deleteShow={this.deleteHandler} />
                         );
                     })}
                 </section>
