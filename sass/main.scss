@@ -1,0 +1,51 @@
+@mixin spaceCalc(){
+    
+}
+
+body,html{
+    margin:0;
+    padding:0;
+}
+
+%set-space{
+    padding-bottom:15px;
+    margin:0;
+}
+
+h1,h2,h3,h4,h5,p{
+    @extend %set-space;
+}
+
+
+
+img{
+    width:100%;
+}
+
+.enter{
+    padding:25px 0;
+    max-width:960px;
+    margin:0 auto;
+}
+
+.show-grid
+{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.show{
+    width:20%;
+    padding:15px;
+    margin:15px;
+    border:1px solid #CCC;
+}
+
+input[type=text]{
+    width:100%;
+    padding:15px;
+    font-size:1.1em;
+    font-weight:bold;
+}
